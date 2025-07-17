@@ -1,0 +1,16 @@
+{
+  "Comment": "Convert gp2 volumes to gp3",
+  "StartAt": "Filter Volumes",
+  "States": {
+    "Filter Volumes": {
+      "Type": "Task",
+      "Resource": "arn:aws:lambda:us-east-1:123456789012:function:FilterVolumes",
+      "Next": "Modify Volumes"
+    },
+    "Modify Volumes": {
+      "Type": "Task",
+      "Resource": "arn:aws:lambda:us-east-1:123456789012:function:ModifyVolumes",
+      "End": true
+    }
+  }
+}
